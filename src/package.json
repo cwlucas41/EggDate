@@ -1,7 +1,7 @@
 {
   "name": "eggdate",
   "version": "1.0.0",
-  "description": "",
+  "description": "alexa skill that converts the julian date printed on egg cartons",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/cwlucas41/EggDate#readme",
   "dependencies": {
-    "alexa-sdk": "^1.0.20"
+    "alexa-sdk": "^1.0.20",
+    "leap-year": "^2.0.1"
   }
 }

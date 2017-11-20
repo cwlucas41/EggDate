@@ -6,7 +6,8 @@ module.exports = {
                 NUMBER_TO_PAST_DATE_REPORT: "%s was %s %s which was about %s days ago",
                 MONTH_NAMES: ["January", "February", "March", "April", "May", "June",
                     "July", "August", "September", "October", "November", "December"
-                ]
+                ],
+                INVALID_CODE: "Sorry, the code must be between %s and %s"
             }
         }
     }

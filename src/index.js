@@ -1,6 +1,7 @@
 'use strict';
 
 const Alexa = require('alexa-sdk');
+const leapYear = require('leap-year');
 const languageStrings = require('./languageStrings');
 const APP_ID = "amzn1.ask.skill.3b996d41-9be1-425e-b069-359c0ce91384";
 
@@ -41,22 +42,33 @@ const handlers = {
             thenYear = now.getFullYear() - 1;
         }
 
-        const packDate = new Date();
-        packDate.setFullYear(thenYear);
-        packDate.setMonth(0);
-        packDate.setDate(1);
-        packDate.setDate(packDate.getDate() + additionalDays);
+        let maxCode = 365;
+        let minCode = 1;
+        if (leapYear(thenYear)) {
+            maxCode = 366;
+        }
 
-        const daysSincePacking = daysBetweenDates(now, packDate);
+        if (thenCode < minCode || maxCode < thenCode) {
+            console.log("invalid code");
+            this.emit(":tell", this.t('INVALID_CODE', minCode, maxCode));
+        } else {
+            const packDate = new Date();
+            packDate.setFullYear(thenYear);
+            packDate.setMonth(0);
+            packDate.setDate(1);
+            packDate.setDate(packDate.getDate() + additionalDays);
 
-        const message = this.t('NUMBER_TO_PAST_DATE_REPORT',
-            thenCode,
-            this.t('MONTH_NAMES')[packDate.getMonth()],
-            packDate.getDate(),
-            daysSincePacking);
-        console.log(message);
+            const daysSincePacking = daysBetweenDates(now, packDate);
 
-        this.emit(":tell", message);
+            const message = this.t('NUMBER_TO_PAST_DATE_REPORT',
+                thenCode,
+                this.t('MONTH_NAMES')[packDate.getMonth()],
+                packDate.getDate(),
+                daysSincePacking);
+            console.log(message);
+
+            this.emit(":tell", message);
+        }
     },
 
     'Error': function() {
