@@ -1,0 +1,58 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "NumberToDate",
+        "samples": [
+          "{number}",
+          "the code {number}",
+          "gimme {number}",
+          "what about {number}",
+          "about {number}",
+          "how about {number}",
+          "try {number}",
+          "about the code {number}",
+          "the date {number}",
+          "about the date {number}",
+          "try the code {number}",
+          "try the date {number}",
+          "the number {number}",
+          "about the number {number}",
+          "try the number {number}",
+          "carton number {number}",
+          "carton code {number}",
+          "try the carton code {number}",
+          "try carton code {number}",
+          "number {number}",
+          "code {number}",
+          "give me the code {number}",
+          "give me the number {number}",
+          "give me the carton code {number}",
+          "give me {number}",
+          "gimme the carton code {number}",
+          "gimme the number {number}",
+          "gimme the code {number}"
+        ],
+        "slots": [
+          {
+            "name": "number",
+            "type": "AMAZON.NUMBER"
+          }
+        ]
+      }
+    ],
+    "invocationName": "eggspiration date"
+  }
+}
